@@ -1,10 +1,12 @@
+import delay from "delay";
 import React from 'react';
-import delay from "delay"
+import styles from './page.module.css'
 
 const Contact =async () => {
-  await delay(500)
+  const {contact} = styles
+  await delay(700)
   return (
-    <div>
+    <div className={contact}>
       contact
     </div>
   );
