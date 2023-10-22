@@ -1,17 +1,21 @@
 import Link from "next/link";
 import React from "react";
+import styles from "./page.module.css";
 
 const NavBar = () => {
+  const { container, logo,logout } = styles;
   return (
-    <div>
-      <Link href={"/"}>TechTales</Link>
-      <div>
+    <div className={container}>
+      <Link href={"/"} className={logo}>
+        TechTales
+      </Link>
+      <div className={styles.links}>
         {links.map((link) => (
-          <Link key={link.id} href={link.url}>
+          <Link className={styles.link} key={link.id} href={link.url}>
             {link.title}
           </Link>
         ))}
-        <button>Logout</button>
+        <button className={logout}>Logout</button>
       </div>
     </div>
   );
