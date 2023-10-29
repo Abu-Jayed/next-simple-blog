@@ -1,15 +1,12 @@
 "use client";
-import { useSession } from "next-auth/react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React from "react";
-import useSWR from "swr";
+import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import delay from "delay";
-import Link from "next/link";
+import useSWR from "swr";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Dashboard = () => {
-
 
   //OLD WAY TO FETCH DATA
 
@@ -49,7 +46,7 @@ const Dashboard = () => {
   );
 
   if (session.status === "loading") {
-    return <p className="text-red-500 text-4xl">Loading...</p>;
+    return <p>Loading...</p>;
   }
 
   if (session.status === "unauthenticated") {
@@ -82,6 +79,7 @@ const Dashboard = () => {
   };
 
   const handleDelete = async (id) => {
+    id.preventDefault();
     try {
       await fetch(`/api/posts/${id}`, {
         method: "DELETE",
@@ -101,9 +99,7 @@ const Dashboard = () => {
             : data?.map((post) => (
                 <div className={styles.post} key={post._id}>
                   <div className={styles.imgContainer}>
-                    <Link href={`blog/${post._id}`}>
                     <Image src={post.img} alt="" width={200} height={100} />
-                    </Link>
                   </div>
                   <h2 className={styles.postTitle}>{post.title}</h2>
                   <span
