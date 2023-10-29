@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer/Footer";
 import NavBar from "./components/Navbar/NavBar"
 import { ThemeProvider } from "./context/ThemeContext";
 import "./globals.css";
