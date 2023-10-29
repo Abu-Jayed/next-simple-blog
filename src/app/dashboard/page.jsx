@@ -5,8 +5,11 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import useSWR from "swr";
 import styles from "./page.module.css";
+import delay from "delay";
+import Link from "next/link";
 
 const Dashboard = () => {
+
 
   //OLD WAY TO FETCH DATA
 
@@ -46,7 +49,7 @@ const Dashboard = () => {
   );
 
   if (session.status === "loading") {
-    return <p>Loading...</p>;
+    return <p className="text-red-500 text-4xl">Loading...</p>;
   }
 
   if (session.status === "unauthenticated") {
@@ -98,7 +101,9 @@ const Dashboard = () => {
             : data?.map((post) => (
                 <div className={styles.post} key={post._id}>
                   <div className={styles.imgContainer}>
+                    <Link href={`blog/${post._id}`}>
                     <Image src={post.img} alt="" width={200} height={100} />
+                    </Link>
                   </div>
                   <h2 className={styles.postTitle}>{post.title}</h2>
                   <span

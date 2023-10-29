@@ -4,7 +4,7 @@ import React from 'react';
 const Loading = () => {
   return (
     <div className='text-red-500 text-6xl'>
-      Contact is loading
+      Blog is loading
     </div>
   );
 };
