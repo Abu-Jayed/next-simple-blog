@@ -1,12 +1,9 @@
-import delay from 'delay';
-import React from 'react';
+import React from 'react'
 
 const Loading = () => {
   return (
-    <div className='text-red-500 text-6xl'>
-      Contact is loading
-    </div>
-  );
-};
+    <div>Loading</div>
+  )
+}
 
-export default Loading;
+export default Loading

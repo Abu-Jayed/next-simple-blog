@@ -79,7 +79,6 @@ const Dashboard = () => {
   };
 
   const handleDelete = async (id) => {
-    id.preventDefault();
     try {
       await fetch(`/api/posts/${id}`, {
         method: "DELETE",

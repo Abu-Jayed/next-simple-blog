@@ -1,12 +1,11 @@
-import delay from 'delay';
 import React from 'react';
 
-const Loading = () => {
+const loading = () => {
   return (
-    <div className='text-red-500 text-6xl'>
-      Blog is loading
+    <div style={{color:"red", fontSize: "50px"}}>
+      Loadin...
     </div>
   );
 };
 
-export default Loading;
+export default loading;
